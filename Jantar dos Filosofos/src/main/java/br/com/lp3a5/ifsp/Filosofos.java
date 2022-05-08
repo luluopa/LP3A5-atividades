@@ -3,94 +3,101 @@ package main.java.br.com.lp3a5.ifsp;
 import java.util.Random;
 import java.util.concurrent.Semaphore;
 
-class Philosopher implements Runnable {
+class Filosofo implements Runnable {
+	
+	final private int loopIterationQuantidade = 100;
+	final private int quantidadeDeFilosofo = 5;
 
     private int id;
-    private int eattime;
+    private int tempoDeComer;
 
-    private int amount=0;
-
-
-    private Semaphore leftChopstick;
-    private Semaphore rightChopstick;
+    private int quantidade=0;
 
 
-    public Philosopher(int id, Semaphore leftChopstick, Semaphore rightChopstick) {
+    private Semaphore garfoEsquerda;
+    private Semaphore garfoDireita;
+
+
+    public Filosofo(int id, Semaphore garfoEsquerda, Semaphore garfoDireita) {
         this.id = id;
-        this.leftChopstick = leftChopstick;
-        this.rightChopstick = rightChopstick;
+        this.garfoEsquerda = garfoEsquerda;
+        this.garfoDireita = garfoDireita;
     }
 
     public void run() {
         try {
-            while (amount<100){
-                think();
-                pickUpLeftChopstick();
-                pickUpRightChopstick();
-                eat();
-                putDownChopsticks();
-
-
+            while (quantidade < loopIterationQuantidade){
+                pensar();
+                pegarColherEsquerda();
+                pegarColherDireita();
+                comer();
+                desocuparColheres();
             }
         } catch (InterruptedException e) {
-            System.out.println("Philosopher " + id + " was interrupted.\n");
+            System.out.println("Filosofo " + id + " foi interrompido.\n");
         }
     }
 
 
-    private void think() throws InterruptedException {
-        System.out.println("Philosopher " + id + " is thinking.\n");
+    private void pensar() throws InterruptedException {
+        System.out.println("Filosofo " + id + " esta pensando.\n");
         System.out.flush();
         Thread.sleep(new Random().nextInt(10));
     }
 
 
-    private void pickUpLeftChopstick() throws InterruptedException{
-        if(leftChopstick.availablePermits() ==0){
-            System.out.println("Philosopher " +id +" is waiting for left  chopstick");
+    private void pegarColherEsquerda() throws InterruptedException{
+        if(garfoEsquerda.availablePermits() == 0){
+            System.out.println("Filosofo " +id +" esta esperando pelo talher da esquerda");
         }
 
-
-        leftChopstick.acquire();
-        System.out.println("Philosopher " + id + " is holding  left  chopstick.\n");
-
+        garfoEsquerda.acquire();
+        System.out.println("Filosofo " + id + " esta segurando o talher da esquerda.\n");
     }
 
 
-    private void pickUpRightChopstick()  throws InterruptedException{
-        if(rightChopstick.availablePermits() ==0){
-            System.out.println("Philosopher " +id +" is waiting for right chopstick");
+    private void pegarColherDireita()  throws InterruptedException{
+        if(garfoDireita.availablePermits() ==0){
+            System.out.println("Filosofo " +id +" esta esperando pelo talher da direita");
         }
 
-        rightChopstick.acquire();
-        System.out.println("Philosopher " + id + " is holding  right   chopstick.\n");
+        garfoDireita.acquire();
+        System.out.println("Filosofo " + id + " esta segurando o talher da direita.\n");
 
+    }
+    
+    private int gerarNumeroAleatorioMenorQueIndexMaiorQueZero(int index) throws InterruptedException {
+    	if (index > 0) {
+    		return new Random().nextInt(index);
+    	}
+    	else {
+    		throw new InterruptedException("funcao: gerarNumeroAleatorioMenorQueIndexMaiorQueZero deve ter parametro maior que 0");
+    	}
     }
 
 
-    private void eat() throws InterruptedException {
-        System.out.println("Philosopher " + id + " is eating.\n");
+    private void comer() throws InterruptedException {
+        System.out.println("Filosofo " + id + " esta comendo.\n");
         System.out.flush();
         do{
-            eattime=new Random().nextInt(10);
-            //generate a random value for eat time which is greater than 0
-        }while (eattime<=0);
+            tempoDeComer = this.gerarNumeroAleatorioMenorQueIndexMaiorQueZero(10);
+        }while (tempoDeComer<=0);
 
-        if (amount+eattime*5>100){
-            eattime=(100-amount)/5;
-            amount=100;
+        if (quantidade + tempoDeComer * quantidadeDeFilosofo > loopIterationQuantidade){
+            tempoDeComer = (loopIterationQuantidade - quantidade)/quantidadeDeFilosofo;
+            quantidade = loopIterationQuantidade;
         }else {
-            amount=amount+eattime*5;
+            quantidade = quantidade + tempoDeComer * quantidadeDeFilosofo;
         }
 
-        Thread.sleep(eattime);
+        Thread.sleep(tempoDeComer);
     }
 
 
-    private void putDownChopsticks() {
-        leftChopstick.release();
-        rightChopstick.release();
-        System.out.println("Philosopher " + id +  " ate "+amount+"% and"+" released left and right sticks \n");
+    private void desocuparColheres() {
+        garfoEsquerda.release();
+        garfoDireita.release();
+        System.out.println("Filosofo " + id +  " comeu "+quantidade+"% e"+" soltou os talheres da esquerda e direita \n");
     }
 
 }

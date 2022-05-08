@@ -8,17 +8,17 @@ public class Jantar {
     private static final int numeroDeSemaforos = 5;
 
     public static void main(String[] args) {
-        Semaphore[] chopsticks = new Semaphore[numeroDeSemaforos];
+        Semaphore[] garfo = new Semaphore[numeroDeSemaforos];
 
         for (int i = 0; i < numeroDeSemaforos; i++) {
-            chopsticks[i] = new Semaphore(1);
+        	garfo[i] = new Semaphore(1);
         }
 
-        Philosopher[] philosophers = new Philosopher[numeroDeSemaforos];
+        Filosofo[] Filosofos = new Filosofo[numeroDeSemaforos];
 
         for (int i = 0; i < numeroDeSemaforos; i++) {
-            philosophers[i] = new Philosopher(i, chopsticks[i], chopsticks[(i + 1) % numeroDeSemaforos]);
-            new Thread(philosophers[i]).start();
+            Filosofos[i] = new Filosofo(i, garfo[i], garfo[(i + 1) % numeroDeSemaforos]);
+            new Thread(Filosofos[i]).start();
         }
 
     }

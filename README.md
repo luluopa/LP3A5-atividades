@@ -12,6 +12,8 @@ Portfólio de exercícios de Linguagem de Programação 3 - IFSP
 * [Jantar dos Filósofos](https://github.com/luluopa/LP3A5-atividades/tree/main/Jantar%20dos%20Filosofos/src/main/java/br/com/lp3a5/ifsp)
     * O problema Dining Philosophers é um dos problemas clássicos usados ​​para descrever problemas de sincronização em um ambiente multithread e ilustrar técnicas para resolvê-los.
 * [StreamApi Demonstração](https://github.com/luluopa/LP3A5-atividades/tree/main/StreamApi%20Demonstracao/src/main/java/br/com/lp3a5/ifsp) 
+* [Exception Demonstração](https://github.com/luluopa/LP3A5-atividades/tree/main/Exception%20Demonstracao/src/main/java/br/com/lp3a5/ifsp) 
+* [Reflection Demonstração](https://github.com/luluopa/LP3A5-atividades/tree/main/Reflection%20Demonstracao/src/main/java/br/com/lp3a5/ifsp) 
  
 ## Referências
 * [Jantar dos Filósofos](https://www.baeldung.com/java-dining-philoshophers#:~:text=The%20Dining%20Philosophers%20problem%20is,computers%20accessing%20tape%20drive%20peripherals.)

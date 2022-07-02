@@ -1,7 +1,7 @@
-# Linguagem de Programação 3
+# Java Exercises
 
 <h3 align="center">
-Portfólio de exercícios de Linguagem de Programação 3 - IFSP
+Java exercises problems solved
 </h3>
 
 <p align="center">
@@ -9,12 +9,12 @@ Portfólio de exercícios de Linguagem de Programação 3 - IFSP
 <p>
   
 ## Repositórios
-* [Jantar dos Filósofos](https://github.com/luluopa/LP3A5-atividades/tree/main/Jantar%20dos%20Filosofos/src/main/java/br/com/lp3a5/ifsp)
-    * O problema Dining Philosophers é um dos problemas clássicos usados ​​para descrever problemas de sincronização em um ambiente multithread e ilustrar técnicas para resolvê-los.
-* [StreamApi Demonstração](https://github.com/luluopa/LP3A5-atividades/tree/main/StreamApi%20Demonstracao/src/main/java/br/com/lp3a5/ifsp) 
-* [Exception Demonstração](https://github.com/luluopa/LP3A5-atividades/tree/main/Exception%20Demonstracao/src/main/java/br/com/lp3a5/ifsp) 
-* [Reflection Demonstração](https://github.com/luluopa/LP3A5-atividades/tree/main/Reflection%20Demonstracao/src/main/java/br/com/lp3a5/ifsp) 
+* [Philosophers Dining Problem](https://github.com/luluopa/LP3A5-atividades/tree/main/Jantar%20dos%20Filosofos/src/main/java/br/com/lp3a5/ifsp)
+    * The Dining Philosophers problem is one of the classic problems used to describe synchronization problems in a multithreaded environment and illustrate techniques for solving them.
+* [StreamApi Demonstration](https://github.com/luluopa/LP3A5-atividades/tree/main/StreamApi%20Demonstracao/src/main/java/br/com/lp3a5/ifsp) 
+* [Exception Demonstration](https://github.com/luluopa/LP3A5-atividades/tree/main/Exception%20Demonstracao/src/main/java/br/com/lp3a5/ifsp) 
+* [Reflection Demonstration](https://github.com/luluopa/LP3A5-atividades/tree/main/Reflection%20Demonstracao/src/main/java/br/com/lp3a5/ifsp) 
 * [GildedRose Refactor](https://github.com/luluopa/LP3A5-atividades/tree/main/GildedRose%20Refactor/src/main/java/com/gildedrose) 
  
-## Referências
-* [Jantar dos Filósofos](https://www.baeldung.com/java-dining-philoshophers#:~:text=The%20Dining%20Philosophers%20problem%20is,computers%20accessing%20tape%20drive%20peripherals.)
+## References
+* [Philosophers Dining Problem](https://www.baeldung.com/java-dining-philoshophers#:~:text=The%20Dining%20Philosophers%20problem%20is,computers%20accessing%20tape%20drive%20peripherals.)
